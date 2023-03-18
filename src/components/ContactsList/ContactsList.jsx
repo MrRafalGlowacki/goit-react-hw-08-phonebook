@@ -1,6 +1,5 @@
 import React from 'react';
 import css from './ContactsList.module.css';
-// import { ContactFilter } from './ContactFilter/ContactFilter';
 import { ContactsListItem } from './ContactsListItem/ContactsListItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectFilter } from 'redux/selectors';
@@ -8,7 +7,7 @@ import { deleteContactAction } from 'redux/contacts/contactOperations';
 
 export const ContactsList = () => {
   const contactsList = useSelector(selectContacts);
-  const contactsAmount = contactsList.length;
+
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
@@ -37,17 +36,9 @@ export const ContactsList = () => {
   ));
   return (
     <>
-      <h3 className={css.title}>
-        {contactsAmount === 0
-          ? 'You have no contacts'
-          : contactsAmount === 1
-          ? 'You have only one contact'
-          : `You have ${contactsAmount} contacts`}
-      </h3>
       {contactsList.length > 0 || (
         <div className={css.empty}>add some contacts</div>
       )}
-      {/* {contactsList.length > 0 && <ContactFilter />} */}
       {contactsList.length > 0 && <ul className={css.container}>{list}</ul>}
     </>
   );

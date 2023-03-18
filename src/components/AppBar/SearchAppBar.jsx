@@ -11,7 +11,7 @@ import { Loader } from 'components/Loader/Loader';
 import { Button, Container } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
-import { selectFilter } from 'redux/selectors';
+import { selectContacts, selectFilter } from 'redux/selectors';
 import { setFilterAction } from 'redux/filtersSlice';
 import logo from '../../components/Icon/Phonebook192x192.png';
 import css from './SearchAppBar.module.css';
@@ -62,7 +62,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const SearchAppBar = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
-
+  const contactsList = useSelector(selectContacts);
+  const contactsAmount = contactsList.length;
   const handleChange = event => {
     const value = event.target.value;
     dispatch(setFilterAction(value));
@@ -79,15 +80,20 @@ export const SearchAppBar = () => {
               height={35}
               className={css.logo}
             />
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: 'none', sm: 'block' }, marginRight: 'auto' }}
+            <Box
+              sx={{ marginRight: 'auto', display: { xs: 'none', sm: 'block' } }}
             >
-              Phonebook
-            </Typography>
-
+              <Typography variant="h6" noWrap component="div">
+                Phonebook
+              </Typography>
+              <Typography variant="h9">
+                {contactsAmount === 0
+                  ? 'You have no contacts'
+                  : contactsAmount === 1
+                  ? 'You have only one contact'
+                  : `You have ${contactsAmount} contacts`}
+              </Typography>
+            </Box>
             <Search sx={{ marginRight: 'auto' }}>
               <SearchIconWrapper>
                 <SearchIcon />
@@ -104,6 +110,7 @@ export const SearchAppBar = () => {
             </Search>
             <UserMenu />
             <Button
+              sx={{}}
               className={css.btn}
               variant="contained"
               type="button"

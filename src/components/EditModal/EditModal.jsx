@@ -9,6 +9,7 @@ import { createPortal } from 'react-dom';
 import { Button, TextField } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 import { editContactAction } from 'redux/contacts/contactOperations';
+import css from './EditModal.module.css'
 
 
 const style = {
@@ -84,9 +85,9 @@ export const EditModal = () => {
               onChange={handleChange}
               required
             />
-            <Button variant="contained" type="submit">
-              <SaveIcon />
-              Save Contact
+            <Button variant="contained" type="submit" className={css.btn} >
+              <SaveIcon className={css.icon} />
+              Save contact
             </Button>
           </Box>
         </Box>

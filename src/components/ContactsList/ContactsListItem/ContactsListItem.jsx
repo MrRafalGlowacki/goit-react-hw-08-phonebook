@@ -15,20 +15,17 @@ export const ContactsListItem = ({
   const handleContactsEdit = contact => {
     dispatch(updateModalState());
     dispatch(setOpenedContact(contact));
-  
   };
   return (
-    <li key={id} className={css.item}>
+    <li
+      key={id}
+      className={css.item}
+      onClick={() => handleContactsEdit(contact)}
+    >
       <span className={css.name}>
         {name}: {number}
       </span>{' '}
-      <button
-        type="button"
-        className={css.button}
-        onClick={() => handleContactsEdit(contact)}
-      >
-        Edit
-      </button>
+    
       <button
         type="button"
         className={css.button}
