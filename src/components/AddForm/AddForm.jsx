@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { inputHandlerAction } from 'redux/contactsSlice';
-import { addContactAction } from 'redux/operations';
+import { inputHandlerAction } from 'redux/contacts/contactsSlice';
+import { addContactAction } from 'redux/contacts/contactOperations';
 import { selectContacts, selectName, selectNumber } from 'redux/selectors';
 import css from './AddForm.module.css';
 import { AddName } from './AddName/AddName';

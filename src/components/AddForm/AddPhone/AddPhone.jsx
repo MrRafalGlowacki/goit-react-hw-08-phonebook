@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { inputHandlerAction } from 'redux/contactsSlice';
+import { inputHandlerAction } from 'redux/contacts/contactsSlice';
 import { selectNumber } from 'redux/selectors';
 import css from './AddPhone.module.css';
 

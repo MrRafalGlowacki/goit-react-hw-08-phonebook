@@ -4,3 +4,5 @@ export const selectIsLoading = state => state.contacts.isLoading;
 export const selectError = state => state.contacts.error;
 export const selectName = state => state.contacts.inputs.name;
 export const selectNumber = state => state.contacts.inputs.number;
+export const selectIsLoggedIn = state => state.auth.isLoggedIn;
+export const selectIsRefreshing = state => state.auth.isRefreshing

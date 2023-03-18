@@ -12,8 +12,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { logIn } from 'redux/auth/authOperations';
+import { useDispatch } from 'react-redux';
 
-function Copyright(props) {
+const Copyright = props => {
   return (
     <Typography
       variant="body2"
@@ -30,18 +32,26 @@ function Copyright(props) {
       {'.'}
     </Typography>
   );
-}
+};
 
 const theme = createTheme();
 
-export default function SignIn() {
+const SignIn = () => {
+  const dispatch = useDispatch();
   const handleSubmit = event => {
     event.preventDefault();
+    const form = event.currentTarget;
     const data = new FormData(event.currentTarget);
+    dispatch(logIn({
+        email: data.get('email'),
+        password: data.get('password'),
+      })
+    );
     console.log({
       email: data.get('email'),
       password: data.get('password'),
     });
+    form.reset();
   };
 
   return (
@@ -121,4 +131,6 @@ export default function SignIn() {
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+export default SignIn;

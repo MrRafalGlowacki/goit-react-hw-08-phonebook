@@ -3,7 +3,7 @@ import {
   addContactAction,
   deleteContactAction,
   fetchContactsAction,
-} from './operations';
+} from './contactOperations';
 
 const initState = {
   contacts: [],
