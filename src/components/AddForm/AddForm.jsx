@@ -33,12 +33,13 @@ export const AddForm = () => {
   };
 
   return (
-    <>
+    <div>
       <h2 className={css.title}>Add new contact</h2>
       <form className={css.form} onSubmit={handleSubmit}>
         <AddName />
         <AddPhone />
         <Button
+          className={css.button}
           sx={{ textTransform: 'none' }}
           variant="contained"
           type="submit"
@@ -48,6 +49,6 @@ export const AddForm = () => {
         </Button>
         <IconButton color="primary" aria-label="add contact"></IconButton>
       </form>
-    </>
+    </div>
   );
 };

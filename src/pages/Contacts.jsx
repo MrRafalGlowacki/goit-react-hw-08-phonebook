@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactsAction } from 'redux/contacts/contactOperations';
 import { selectError, selectIsLoading } from 'redux/selectors';
+import css from './Contacts.module.css'
 
 
 const Contacts = () => {
@@ -16,11 +17,11 @@ const Contacts = () => {
     dispatch(fetchContactsAction());
   }, [dispatch]);
   return (
-    <>
-      <AddForm />
+    <div className={css.container}>
+      <AddForm className={css['add-form']}/>
       {isLoading && !error && <Loader />}
-      <ContactsList />
-    </>
+      <ContactsList className={css.contacts}/>
+    </div>
   );
 };
 export default Contacts;

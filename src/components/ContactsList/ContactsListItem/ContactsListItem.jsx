@@ -17,15 +17,12 @@ export const ContactsListItem = ({
     dispatch(setOpenedContact(contact));
   };
   return (
-    <li
-      key={id}
-      className={css.item}
-      onClick={() => handleContactsEdit(contact)}
-    >
-      <span className={css.name}>
-        {name}: {number}
-      </span>{' '}
-    
+    <li key={id} className={css.item}>
+      <div onClick={() => handleContactsEdit(contact)}>
+        <span className={css.name}>
+          {name}: {number}
+        </span>{' '}
+      </div>
       <button
         type="button"
         className={css.button}

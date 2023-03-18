@@ -86,7 +86,7 @@ export const SearchAppBar = () => {
               <Typography variant="h6" noWrap component="div">
                 Phonebook
               </Typography>
-              <Typography variant="h9">
+              <Typography variant="h9" noWrap>
                 {contactsAmount === 0
                   ? 'You have no contacts'
                   : contactsAmount === 1
@@ -110,7 +110,7 @@ export const SearchAppBar = () => {
             </Search>
             <UserMenu />
             <Button
-                            className={css.btn}
+              className={css.btn}
               variant="contained"
               type="button"
               onClick={() => dispatch(logOut())}
