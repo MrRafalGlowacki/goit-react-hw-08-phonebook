@@ -8,13 +8,9 @@ const UserMenu = () => {
   const userName = useSelector(SelectUserName);
   const userEmail = useSelector(SelectUserEmail);
   return (
-    <Box sx={{}} className={css.box}>
-      <Typography sx={{}} className={css.name}>
-        Welcome, {userName}!
-      </Typography>
-      <Typography sx={{}} className={css.email}>
-        {userEmail}
-      </Typography>
+    <Box className={css.box}>
+      <Typography className={css.name}>Welcome, {userName}!</Typography>
+      <Typography className={css.email}>{userEmail}</Typography>
     </Box>
   );
 };

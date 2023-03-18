@@ -110,8 +110,7 @@ export const SearchAppBar = () => {
             </Search>
             <UserMenu />
             <Button
-              sx={{}}
-              className={css.btn}
+                            className={css.btn}
               variant="contained"
               type="button"
               onClick={() => dispatch(logOut())}
