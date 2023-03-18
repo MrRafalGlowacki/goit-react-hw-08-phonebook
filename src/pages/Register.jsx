@@ -51,11 +51,7 @@ const SignUp = () => {
       })
     );
 
-    console.log({
-      name: data.get('userName'),
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    
     form.reset();
   };
 

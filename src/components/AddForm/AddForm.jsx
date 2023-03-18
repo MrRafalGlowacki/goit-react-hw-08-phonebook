@@ -6,6 +6,8 @@ import { selectContacts, selectName, selectNumber } from 'redux/selectors';
 import css from './AddForm.module.css';
 import { AddName } from './AddName/AddName';
 import { AddPhone } from './AddPhone/AddPhone';
+import { Button, IconButton } from '@mui/material';
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 
 export const AddForm = () => {
   const name = useSelector(selectName);
@@ -32,13 +34,19 @@ export const AddForm = () => {
 
   return (
     <>
-      <h2 className={css.title}>Phonebook</h2>
+      <h2 className={css.title}>Add new contact</h2>
       <form className={css.form} onSubmit={handleSubmit}>
         <AddName />
         <AddPhone />
-        <button type="submit" className={css.button}>
+        <Button
+          sx={{ textTransform: 'none' }}
+          variant="contained"
+          type="submit"
+          startIcon={<PersonAddAlt1Icon />}
+        >
           Add contact
-        </button>
+        </Button>
+        <IconButton color="primary" aria-label="add contact"></IconButton>
       </form>
     </>
   );

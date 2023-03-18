@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './ContactsList.module.css';
-import { ContactFilter } from './ContactFilter/ContactFilter';
+// import { ContactFilter } from './ContactFilter/ContactFilter';
 import { ContactsListItem } from './ContactsListItem/ContactsListItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectFilter } from 'redux/selectors';
@@ -11,6 +11,7 @@ export const ContactsList = () => {
   const contactsAmount = contactsList.length;
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
+
   const handleRemoveContact = (id, name) => {
     dispatch(deleteContactAction(id));
     alert(`${name} will be removed from your contacts`);
@@ -26,6 +27,7 @@ export const ContactsList = () => {
   const list = sortedList.map(contact => (
     <ContactsListItem
       key={contact.id}
+      contact={contact}
       id={contact.id}
       name={contact.name}
       number={contact.number}
@@ -45,7 +47,7 @@ export const ContactsList = () => {
       {contactsList.length > 0 || (
         <div className={css.empty}>add some contacts</div>
       )}
-      {contactsList.length > 0 && <ContactFilter />}
+      {/* {contactsList.length > 0 && <ContactFilter />} */}
       {contactsList.length > 0 && <ul className={css.container}>{list}</ul>}
     </>
   );
