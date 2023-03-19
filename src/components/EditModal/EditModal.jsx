@@ -3,14 +3,17 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
-import {  SelectIsModalShown, SelectOpenedContact } from 'redux/selectors';
-import { editOpenedContact, updateModalState } from 'redux/modal/modalSlice';
+import { SelectIsModalShown, SelectOpenedContact } from 'redux/selectors';
+import {
+  editOpenedContactAction,
+  resetOpenedContactAction,
+  showHideModalAction,
+} from 'redux/modal/modalSlice';
 import { createPortal } from 'react-dom';
 import { Button, TextField } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 import { editContactAction } from 'redux/contacts/contactOperations';
-import css from './EditModal.module.css'
-
+import css from './EditModal.module.css';
 
 const style = {
   position: 'absolute',
@@ -28,11 +31,12 @@ const modalRoot = document.querySelector('#modal-root');
 export const EditModal = () => {
   const dispatch = useDispatch();
   const handleClose = () => {
-    dispatch(updateModalState());
+    dispatch(showHideModalAction());
+    dispatch(resetOpenedContactAction());
   };
   const handleChange = event => {
     const payload = { name: event.target.name, value: event.target.value };
-    dispatch(editOpenedContact(payload));
+    dispatch(editOpenedContactAction(payload));
   };
   const contact = useSelector(SelectOpenedContact);
 
@@ -41,7 +45,8 @@ export const EditModal = () => {
   const handleEditedSubmit = event => {
     event.preventDefault();
     dispatch(editContactAction(contact));
-    dispatch(updateModalState());
+    dispatch(showHideModalAction());
+    dispatch(resetOpenedContactAction());
   };
 
   return createPortal(
@@ -61,7 +66,6 @@ export const EditModal = () => {
             sx={{
               '& > :not(style)': { m: 1, width: '25ch' },
             }}
-            // noValidate
             onSubmit={handleEditedSubmit}
             autoComplete="off"
           >
@@ -85,7 +89,7 @@ export const EditModal = () => {
               onChange={handleChange}
               required
             />
-            <Button variant="contained" type="submit" className={css.btn} >
+            <Button variant="contained" type="submit" className={css.btn}>
               <SaveIcon className={css.icon} />
               Save contact
             </Button>

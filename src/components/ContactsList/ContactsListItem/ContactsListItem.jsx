@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './ContactsListItem.module.css';
 import { useDispatch } from 'react-redux';
-import { setOpenedContact, updateModalState } from 'redux/modal/modalSlice';
+import {
+  setOpenedContactAction,
+  showHideModalAction,
+} from 'redux/modal/modalSlice';
 
 export const ContactsListItem = ({
   contact,
@@ -13,8 +16,8 @@ export const ContactsListItem = ({
 }) => {
   const dispatch = useDispatch();
   const handleContactsEdit = contact => {
-    dispatch(updateModalState());
-    dispatch(setOpenedContact(contact));
+    dispatch(showHideModalAction());
+    dispatch(setOpenedContactAction(contact));
   };
   return (
     <li key={id} className={css.item}>

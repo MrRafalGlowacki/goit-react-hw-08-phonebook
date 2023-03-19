@@ -6,7 +6,7 @@ import { useAuth } from './castomHook/useAuth';
 import { Loader } from './Loader/Loader';
 import PrivateRoute from './Routes/PrivateRoute';
 import PublicRoute from './Routes/PublicRoute';
-import {  SelectIsModalShown, SelectOpenedContact } from 'redux/selectors';
+import { SelectIsModalShown, SelectOpenedContact } from 'redux/selectors';
 import { EditModal } from './EditModal/EditModal';
 import { SearchAppBar } from './AppBar/SearchAppBar';
 
@@ -22,15 +22,15 @@ export const App = () => {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  
+
   const isModalShown = useSelector(SelectIsModalShown);
   const openedContact = useSelector(SelectOpenedContact);
   const { isRefreshing } = useAuth();
 
-  return isRefreshing ? (<Loader />) : (
-    <Suspense
-      fallback={<Loader />}
-    >
+  return isRefreshing ? (
+    <Loader />
+  ) : (
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route element={<SearchAppBar />}>
           <Route

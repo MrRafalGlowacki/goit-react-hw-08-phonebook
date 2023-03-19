@@ -13,24 +13,28 @@ const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    updateModalState: state => {
+    showHideModalAction: state => {
       state.isModalShown = !state.isModalShown;
     },
 
-    setOpenedContact: (state, action) => {
+    setOpenedContactAction: (state, action) => {
       state.openedContact = action.payload;
     },
-    editOpenedContact: (state, action) => {
+    editOpenedContactAction: (state, action) => {
       const { name, value } = action.payload;
       state.openedContact[name] = value;
     },
-    resetOpenedContact: state => {
-      state.openedContact = null;
+    resetOpenedContactAction: state => {
+      state.openedContact = {id: '', name: '', number: '',};
     },
   },
 });
 
-export const { updateModalState, setOpenedContact,editOpenedContact, resetOpenedContact } =
-  modalSlice.actions;
+export const {
+  showHideModalAction,
+  setOpenedContactAction,
+  editOpenedContactAction,
+  resetOpenedContactAction,
+} = modalSlice.actions;
 
 export const modalReducer = modalSlice.reducer;
