@@ -33,8 +33,8 @@ export const AddForm = () => {
   };
 
   return (
-    <div className={css.container} >
-      <h2 className={css.title}>Add new contact</h2>
+    <div className={css.container}>
+      <h3 className={css.title}>Add new contact:</h3>
       <form className={css.form} onSubmit={handleSubmit}>
         <AddName />
         <AddPhone />

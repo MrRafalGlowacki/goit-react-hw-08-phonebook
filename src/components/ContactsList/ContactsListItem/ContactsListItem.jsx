@@ -6,6 +6,37 @@ import {
   setOpenedContactAction,
   showHideModalAction,
 } from 'redux/modal/modalSlice';
+import { Avatar, Chip } from '@mui/material';
+
+const stringToColor = string => {
+  let hash = 0;
+  let i;
+
+  /* eslint-disable no-bitwise */
+  for (i = 0; i < string.length; i += 1) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+  }
+
+  let color = '#';
+
+  for (i = 0; i < 3; i += 1) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += `00${value.toString(16)}`.slice(-2);
+  }
+  /* eslint-enable no-bitwise */
+
+  return color;
+};
+const stringAvatar = name => {
+  const names = name.split(' ');
+  const firstLetters = names.slice(0, 2).map(n => n[0]);
+  return {
+    sx: {
+      bgcolor: stringToColor(name),
+    },
+    children: firstLetters.join('').toUpperCase(),
+  };
+};
 
 export const ContactsListItem = ({
   contact,
@@ -20,20 +51,15 @@ export const ContactsListItem = ({
     dispatch(setOpenedContactAction(contact));
   };
   return (
-    <li key={id} className={css.item}>
-      <div onClick={() => handleContactsEdit(contact)}>
-        <span className={css.name}>
-          {name}: {number}
-        </span>{' '}
-      </div>
-      <button
-        type="button"
-        className={css.button}
-        onClick={() => onContactRemove(id, name)}
-      >
-        X
-      </button>
-    </li>
+    <Chip
+      avatar={<Avatar {...stringAvatar(`${name}`)} />}
+      key={id}
+      className={css.item}
+      label={`${name}: ${number}`}
+      variant="outlined"
+      onClick={() => handleContactsEdit(contact)}
+      onDelete={() => onContactRemove(id, name)}
+    />
   );
 };
 

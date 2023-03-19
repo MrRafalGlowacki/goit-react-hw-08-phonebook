@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { inputHandlerAction } from 'redux/contacts/contactsSlice';
@@ -15,17 +16,18 @@ export const AddName = () => {
 
   return (
     <>
-      <label htmlFor="name" className={css.name}>
-        Name
-      </label>
-      <input
+      <TextField
+        className={css.name}
+        id="outlined-basic"
+        size="small"
         onChange={handleChange}
         autoComplete="off"
-        placeholder="Enter Name"
         type="text"
         name="name"
         value={name}
-        // pattern="^[a-zA-Zа-źА-Ź]+(([' -][a-zA-Zа-źА-Ź ])?[a-zA-Zа-źА-Ź]*)*$"
+        label="Enter Name"
+        variant="outlined"
+        pattern="^[а-źА-Ź]+(([' -][а-źА-Ź ])?[а-źА-Ź]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />

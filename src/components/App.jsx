@@ -11,6 +11,7 @@ import { EditModal } from './EditModal/EditModal';
 import { SearchAppBar } from './AppBar/SearchAppBar';
 
 const baseUrl = '/goit-react-hw-08-phonebook';
+
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
 const NotFound = lazy(() => import('pages/NotFound'));

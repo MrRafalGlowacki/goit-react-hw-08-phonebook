@@ -1,12 +1,11 @@
 .box {
   display: block !important;
   margin-right: 20px !important;
-  margin-left: 10px!important;
+  margin-left: 10px !important;
 }
 .name {
   font-size: 20px !important;
   font-weight: 500 !important;
-  /* line-height: 1; */
 }
 .email {
   font-size: 14px !important;

@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { inputHandlerAction } from 'redux/contacts/contactsSlice';
@@ -15,16 +16,17 @@ export const AddPhone = () => {
 
   return (
     <>
-      <label htmlFor="number" className={css.number}>
-        Number
-      </label>
-      <input
+      <TextField
+        className={css.number}
+        size="small"
+        id="outlined-basic"
         onChange={handleChange}
         autoComplete="off"
         type="tel"
         name="number"
-        placeholder="Enter number"
         value={number}
+        label="Enter number"
+        variant="outlined"
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required

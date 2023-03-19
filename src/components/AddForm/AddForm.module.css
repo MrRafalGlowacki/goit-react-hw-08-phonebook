@@ -14,4 +14,5 @@
 .button {
   text-transform: none !important;
   margin-top: 10px;
+  min-width: 200px;
 }

@@ -25,7 +25,7 @@ const modalSlice = createSlice({
       state.openedContact[name] = value;
     },
     resetOpenedContactAction: state => {
-      state.openedContact = {id: '', name: '', number: '',};
+      state.openedContact = { id: '', name: '', number: '' };
     },
   },
 });
