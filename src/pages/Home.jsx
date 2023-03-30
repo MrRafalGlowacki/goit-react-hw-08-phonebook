@@ -15,18 +15,10 @@ const Home = () => {
       }}
     >
       <Stack spacing={2} direction="row">
-        <Button
-          variant="contained"
-          component={Link}
-          to="/goit-react-hw-08-phonebook/login"
-        >
+        <Button variant="contained" component={Link} to="/login">
           Log In
         </Button>
-        <Button
-          variant="contained"
-          component={Link}
-          to="/goit-react-hw-08-phonebook/register"
-        >
+        <Button variant="contained" component={Link} to="/register">
           Register
         </Button>
       </Stack>

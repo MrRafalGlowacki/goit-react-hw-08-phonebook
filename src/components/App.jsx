@@ -10,7 +10,7 @@ import { SelectIsModalShown, SelectOpenedContact } from 'redux/selectors';
 import { EditModal } from './EditModal/EditModal';
 import { SearchAppBar } from './AppBar/SearchAppBar';
 
-const baseUrl = '/goit-react-hw-08-phonebook';
+// const baseUrl = '/goit-react-hw-08-phonebook';
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -35,22 +35,22 @@ export const App = () => {
       <Routes>
         <Route element={<SearchAppBar />}>
           <Route
-            path={`${baseUrl}/contacts`}
+            path={`/contacts`}
             element={
               <PrivateRoute component={<Contacts />} redirect={'/login'} />
             }
           />
         </Route>
         <Route
-          path={`${baseUrl}/`}
+          path={`/`}
           element={<PublicRoute component={<Home />} />}
         />
         <Route
-          path={`${baseUrl}/login`}
+          path={`/login`}
           element={<PublicRoute component={<Login />} />}
         />
         <Route
-          path={`${baseUrl}/register`}
+          path={`/register`}
           element={<PublicRoute component={<Register />} />}
         />
         <Route path="*" element={<PublicRoute component={<NotFound />} />} />

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const NotFound = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    navigate('/goit-react-hw-08-phonebook/');
+    navigate('/');
   });
   return <div>{'404 :('}</div>;
 };

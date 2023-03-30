@@ -12,24 +12,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
-
-const Copyright = props => {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {'Copyright © '}
-      <Link color="inherit" href="https://github.com/MrRafalGlowacki">
-        Rafał Głowacki
-      </Link>{' '}
-      2023
-      {'.'}
-    </Typography>
-  );
-};
+import { Copyright } from 'components/Copyright/Copyright';
 
 const theme = createTheme();
 

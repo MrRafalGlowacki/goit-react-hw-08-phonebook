@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({
   component,
-  redirectTo = '/goit-react-hw-08-phonebook/',
+  redirectTo = '/',
 }) => {
   const { isAuthorized, isRefreshing } = useAuth();
   const shouldRedirect = isAuthorized && !isRefreshing;
