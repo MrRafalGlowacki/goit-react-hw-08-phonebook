@@ -5,7 +5,7 @@ phone contacts to personal database, edit and delete contacts from it. User
 registration/authorization and database is implemented with Swagger. Phonebook
 is adapted to 3 types of screen: mobile, tablet and desktop.
 
-[Hosted application link](https://nadiakhoptiuk.github.io/goit-react-hw-08-phonebook/)
+[Hosted application link](https://mrrafalglowacki.github.io/goit-react-hw-08-phonebook/)
 
 ## Used technologies
 
